@@ -50,6 +50,8 @@ Since the name of the ingredient is not yet known, make `get_name()` a pure virt
 
 ***Question.*** why do you think the the constructor and the variables are defined as `protected` and not `private`? answer the question in your report after you completed your code.
 
+因为我需要这些变量不被外部访问但是可以被子类继承
+
 </br>
 
 # Sub Ingredients
