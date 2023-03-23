@@ -90,7 +90,7 @@ TEST(HW5Test, TEST8) {
     EXPECT_EQ(equal.price(), 56);
 }
 
-/*
+
 
 TEST(HW5Test, TEST9) {
     Cappuccino equal;
@@ -98,6 +98,7 @@ TEST(HW5Test, TEST9) {
     equal = equal;
     EXPECT_EQ(equal.price(), 57);
 }
+
 
 TEST(HW5Test, TEST10) {
     Mocha mocha{};
@@ -127,7 +128,6 @@ TEST(HW5Test, TEST12) {
     Mocha mocha{};
     mocha.brew();
 }
-*/
 
 
 

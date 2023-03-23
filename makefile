@@ -9,8 +9,6 @@ T = build/main
 $(T): $(UNIT_TEST) $(HW1) $(MAIN)
 	$(GCC) $^ -o $@  $(HEADER_PATH)  -lpthread -lgtest 
 
-
-
 .PHONY:clean run
 
 run:

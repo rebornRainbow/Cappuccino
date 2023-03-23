@@ -8,6 +8,8 @@ Cappuccino::Cappuccino():EspressoBased(){
   this->ingredients.push_back(new MilkFoam(1));
 }
 
+
+
 Cappuccino::Cappuccino(const Cappuccino& cap){
   name = cap.name;
   for(auto &item :cap.side_items){
@@ -23,8 +25,17 @@ Cappuccino::Cappuccino(const Cappuccino& cap){
 
 void Cappuccino::operator=(const Cappuccino& cap){
   name = cap.name;
-  this->side_items.clear();
+
+  std::vector<Ingredient*> tem_g;
+  
   for(auto &item :cap.side_items){
+    tem_g.push_back(
+      IngredientFactory::getItem(item));
+  }
+
+  this->side_items.clear();
+
+  for(auto &item :tem_g){
     this->side_items.push_back(
       IngredientFactory::getItem(item));
   }

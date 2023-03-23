@@ -30,6 +30,8 @@ void Cappuccino::operator=(const Cappuccino& cap){
 
 }
 ```
+
+
 ```c++
 TEST(HW5Test, TEST8) {
     Cappuccino cappuccino;
@@ -39,4 +41,33 @@ TEST(HW5Test, TEST8) {
     equal = cappuccino;
     EXPECT_EQ(equal.price(), 56);
 }
+```
+
+
+上面的代码依然有问题
+
+如果是让自己等于自己，因为额外的料已经删除了，所以不可以在加，这样就会有问题。
+
+解决办法，是先拿到=之前的一份副本，之后再存起来。
+```c++
+void Cappuccino::operator=(const Cappuccino& cap){
+  name = cap.name;
+
+  std::vector<Ingredient*> tem_g;
+
+  
+  for(auto &item :cap.side_items){
+    tem_g.push_back(
+      IngredientFactory::getItem(item));
+  }
+
+  this->side_items.clear();
+
+  for(auto &item :tem_g){
+    this->side_items.push_back(
+      IngredientFactory::getItem(item));
+  }
+
+}
+
 ```
