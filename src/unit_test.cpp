@@ -43,7 +43,7 @@ TEST(HW5Test, TEST3) {
     ingredient = &water;
     EXPECT_EQ(ingredient->get_name(), "Water");
 }
-/*
+
 TEST(HW5Test, TEST4) {
     Cappuccino cappuccino{};
     EXPECT_EQ(cappuccino.get_name(), "Cappuccino");
@@ -65,10 +65,13 @@ TEST(HW5Test, TEST6) {
     EspressoBased* esp{new Cappuccino{}};
     reinterpret_cast<Cappuccino*>(esp)->add_side_item(new Cookie{1});
     std::vector<Ingredient*>& sides = reinterpret_cast<Cappuccino*>(esp)->get_side_items();
+    std::vector<Ingredient*>& ings = (esp)->get_ingredients();
     EXPECT_EQ(sides.size(), 1);
     delete esp;
+    // EXPECT_EQ(ings.size(), 0);
     EXPECT_EQ(sides.size(), 0);
 }
+
 
 TEST(HW5Test, TEST7) {
     Cappuccino cappuccino;
@@ -81,11 +84,13 @@ TEST(HW5Test, TEST7) {
 TEST(HW5Test, TEST8) {
     Cappuccino cappuccino;
     cappuccino.add_side_item(new Water{1});
-    Cappuccino equal;
+    Cappuccino equal = cappuccino;
     equal.add_side_item(new Sugar{1});
     equal = cappuccino;
     EXPECT_EQ(equal.price(), 56);
 }
+
+/*
 
 TEST(HW5Test, TEST9) {
     Cappuccino equal;

@@ -30,10 +30,11 @@ public:
      */
     virtual double price() = 0;
 
-    void brew();
+    void brew();//这是用来表示过程的
+
     std::vector<Ingredient*>& get_ingredients();
 
-    ~EspressoBased();
+    virtual ~EspressoBased();
 
 protected:
     EspressoBased();//因为这是基类不能构造

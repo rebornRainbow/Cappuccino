@@ -1,5 +1,5 @@
 #include "cappuccino.h"
-
+#include "ingredientFactory.h"
 
 Cappuccino::Cappuccino():EspressoBased(){
   name = "Cappuccino";
@@ -10,13 +10,23 @@ Cappuccino::Cappuccino():EspressoBased(){
 
 Cappuccino::Cappuccino(const Cappuccino& cap){
   name = cap.name;
-  for(auto &item :side_items)
-  {
-    this->side_items.push_back(new Ingredient(*item));
+  for(auto &item :cap.side_items){
+    this->side_items.push_back(
+      IngredientFactory::getItem(item));
   }
-  for(auto &item :ingredients)
-  {
-    this->ingredients.push_back(new Ingredient(*item));
+  for(auto &item :cap.ingredients){
+    this->ingredients.push_back(
+      IngredientFactory::getItem(item));
+  }
+
+}
+
+void Cappuccino::operator=(const Cappuccino& cap){
+  name = cap.name;
+  this->side_items.clear();
+  for(auto &item :cap.side_items){
+    this->side_items.push_back(
+      IngredientFactory::getItem(item));
   }
 
 }
@@ -25,32 +35,19 @@ Cappuccino::~Cappuccino(){
   for(const auto& i : side_items)
     delete i;
   this->side_items.clear();
-
 }
 
-void Cappuccino::operator=(const Cappuccino& cap){
-  name = cap.name;
-  for(auto &item :side_items)
-  {
-    this->side_items.push_back(new Ingredient(*item));
-  }
-  for(auto &item :ingredients)
-  {
-    this->ingredients.push_back(new Ingredient(*item));
-  }
 
-}
-
-virtual std::string Cappuccino::get_name(){
+std::string Cappuccino::get_name(){
   return name;
 }
 
-virtual double Cappuccino::price(){
+double Cappuccino::price(){
   double sum = 0;
   for(const auto& item : side_items)
-    sum += item.price();
+    sum += item->price();
   for(const auto& item : ingredients)
-    sum += item.price();
+    sum += item->price();
   return sum;
 }
 

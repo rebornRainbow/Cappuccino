@@ -3,13 +3,13 @@
 
 #include "ingredient.h"
 
-#define DEFCLASS(ClassName,num,str)                     \
+#define DEFCLASS(ClassName,price,str)                 \
 class ClassName:public Ingredient                   \
 {                                                   \
 public:                                             \
-    ClassName(size_t units): Ingredient{num, units}  \
+    ClassName(size_t units): Ingredient{price, units} \
     {                                               \
-        this->name = str ;                    \
+        this->name = str;                           \
     }                                               \ 
                                                     \
     virtual std::string get_name() {                \
@@ -37,6 +37,5 @@ DEFCLASS(Water, 1,"Water");
 
 
 
-
-
 #endif // SUB_INGREDIENTS_H
+
