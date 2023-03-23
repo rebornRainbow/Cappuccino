@@ -1,6 +1,3 @@
-# Advanced Programming - HW5
-<p  align="center"> <b>Homework 5 - Spring 2022 Semester <br> Deadline: Saturday Ordibehesht 31th - 11:59 pm</b> </p>
-
 ## Outline
 
 In this homework, we are going to tackle inheritance and polymorphism in C++. We are going to make different kinds of espresso-based coffees using their ingredients. As you know all espresso-based coffees (like Cappuccino, Mocha, Latte, and ...) have espresso in their recipe and their difference happens in other ingredients like Milk, Milk Foam, Water, Chocolate, and ...
