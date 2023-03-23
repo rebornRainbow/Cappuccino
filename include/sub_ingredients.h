@@ -3,13 +3,13 @@
 
 #include "ingredient.h"
 
-#define DEFCLASS(ClassName,num)                     \
+#define DEFCLASS(ClassName,num,str)                     \
 class ClassName:public Ingredient                   \
 {                                                   \
 public:                                             \
     ClassName(size_t units): Ingredient{num, units}  \
     {                                               \
-        this->name = "ClassName";                    \
+        this->name = str ;                    \
     }                                               \ 
                                                     \
     virtual std::string get_name() {                \
@@ -19,20 +19,21 @@ public:                                             \
 
 
 
-DEFCLASS(Cinnamon, 5);
+DEFCLASS(Cinnamon, 5,"Cinnamon");
 
-DEFCLASS(Chocolate, 5);
+DEFCLASS(Chocolate, 5,"Chocolate");
 
-DEFCLASS(Sugar, 1);
+DEFCLASS(Sugar, 1,"Sugar");
 
-DEFCLASS(Cookie, 10);
+DEFCLASS(Cookie, 10,"Cookie");
 
-DEFCLASS(Espresso, 15);
-DEFCLASS(Milk, 10);
+DEFCLASS(Espresso, 15,"Espresso");
 
-DEFCLASS(MilkFoam, 5);
+DEFCLASS(Milk, 10,"Milk");
 
-DEFCLASS(Water, 1);
+DEFCLASS(MilkFoam, 5,"MilkFoam");
+
+DEFCLASS(Water, 1,"Water");
 
 
 

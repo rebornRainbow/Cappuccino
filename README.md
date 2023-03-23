@@ -142,7 +142,8 @@ In this homework you are allowed to change `Dockerfile`, `CmakeLists.txt` or add
 ***note.*** Implement this class in `espresso_based.h/.cpp` files.
 
 ***Question.*** what happens if you define the destructor i.e. `~EspressoBased()` in the protected section? explain your answer in your report.
- 
+
+这样会让EspressoBased()无法析构造，因为protect 方法和属性可以在父子之间传承，但是外部无法访问。
 
 </br>
 

@@ -9,19 +9,29 @@
 class Ingredient
 {
 public:
-    
-    double get_price_unit();
-    size_t get_units();
-    virtual std::string get_name() = 0;//纯虚函数
-    
-    double price();
-    
-
-protected:
-    Ingredient(double price_unit, size_t units):price_unit(price_unit),units(units)
+    //单价
+    double get_price_unit()
     {
-      
+      return price_unit;
     }
+    //个数
+    size_t get_units()
+    {
+      return units;
+    }
+    //名称
+    virtual std::string get_name() = 0;//纯虚函数
+    //价格
+    double price()
+    {
+      return price_unit*units;
+    }
+    
+    ~Ingredient()
+    {}
+protected:
+    //构造
+    Ingredient(double price_unit, size_t units):price_unit(price_unit),units(units){}
 
     Ingredient(const Ingredient & isp)
     {
@@ -37,8 +47,7 @@ protected:
       price_unit = isp.price_unit;
     }
 
-    ~Ingredient()
-    {}
+   
     /**
      * @brief 
      * 单价
